@@ -1,0 +1,47 @@
+官网下载Windows安装包：http://www.mongodb.org/downloads
+
+
+一般情况下选择默认的64位即可（除非你的主机是32位），下载后，假设我们安装到：D:/fangdu/MongoDB/ ，完成后，进入该目录，新建data和logs两个文件夹，并在logs目录下再新建个mongodb.log。然后打开命令提示符（CMD），Windows8.1的用户需要用管理员身份打开。执行以下命令:
+复制代码 代码如下:
+
+1. cd d:/fangdu/MongoDB/bin
+
+2. d: 
+回车，再执行：
+mongod --dbpath d:/fangdu/MongoDB/data
+这样MongoDB就启动了，打开浏览器，进入：http://127.0.0.1:27017，这时你会看到以下提示语
+It looks like you are trying to access MongoDB over HTTP on the native driver port.
+翻译：你似乎正在尝试通过HTTP本地服务访问MongoDB
+以上是通过命令行启动Mongo，
+为了方便mongodb启动及停止，我们需要把Mongo加入到Windows本地服务中去。
+首先需要先在d:/fangdu/MongoDB文件夹内创建文件夹 logs及data共计2个文件夹
+继续回到cmd，执行：
+代码如下:
+由于我们之前已经进入了d:/fangdu/MongoDB/bin目录，所以只需执行以下命令：
+mongod.exe --logpath d:/fangdu/MongoDB/logs/mongodb.log --logappend --dbpath d:/fangdu/MongoDB/data --directoryperdb --serviceName MongoDB -install  
+
+错误先知：
+因为部分windows系统因素会出现错误提示：
+ api-ms-win-crt-runtime-l1-1-0.dll 丢失 。。。
+
+解决办法： 
+安装VC redit.exe程序解决
+
+是VC的一个程序：VC redit.exe 
+链接：https://www.microsoft.com/zh-cn/download/details.aspx?id=48145
+
+下载时选择x86还是x64的根据自己系统的需求，安装成功就可以了。
+
+
+
+
+打开服务窗口，就能看到我们所需要的结果了：
+
+这样mongodb的安装及服务配置就已经完成了。
+
+启动时可能会出现的错误：
+
+解决办法：
+1. MongoDB安装目录\data\将此文件夹下的mongod.lock删除
+2. MongoDB安装目录\data\将此文件夹下的storage.bson删除
+3. 查看官方文档或按照上一篇安装文章检查是否设置dbpath或logpath等,如果没有设置,默认是安装在C盘.

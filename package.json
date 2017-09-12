@@ -1,0 +1,29 @@
+{
+  "name": "imovie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bluebird": "^3.5.0",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-nodemon": "^0.4.2",
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.11.10",
+    "mongodb": "^2.2.31",
+    "underscore": "^1.8.3",
+    "grunt": "1.0.1"
+  },
+  "devDependencies": {
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2"
+  },
+  "scripts": {
+    "test": "\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bapp.js\u001b[C\u001b[C\u001b[C\u001b[C\u001b[B"
+  },
+  "author": "",
+  "license": "ISC"
+}

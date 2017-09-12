@@ -1,0 +1,22 @@
+Grunt-JavaScript世界的构建工具
+利用Grunt集成自动化，不再每次修改文件后都要重新启动服务器，对于压缩、编译、单元测试等，减少重复的任务。
+Grunt集成自动重启步骤：
+1、利用“npm init”生成package.json文件，该文件为Grunt必需文件。
+2、npm全局安装grunt-cli、grunt-contrib-watch、grunt-nodemon、grunt-concurrent。
+3、根目录下新建gruntfile.js文件，且该文件和package.json文件必需在同一目录下。
+4、编辑gruntfile.js文件自动重启。
+         Gruntfile.js文件包括四个部分：①wrapper函数，②项目与任务配置，③加载grunt插件和任务，④自定义任务。
+ 
+说明：
+         ①：所有的代码必需被包含在wrapper函数中。
+         ②：通过grunt.initConfig= function(grunt) {  }，来配置任务和项目。
+         ③：grunt-contrib-watch作用是当文件修改时，重新执行修改的文件。
+             grunt-nodemon作用是实时监听file选项的app.js文件，只要app.js文件修改，立刻重启。
+         ④：grunt-concurrent是正对慢任务开发的插件。
+ 
+配置完后，就可以在命令行中输入grunt了，可以看到：
+
+具体的使用可以参考：
+http://www.gruntjs.net/getting-started
+具体的插件配置可以查看插件的文档。
+http://www.gruntjs.net/plugins
