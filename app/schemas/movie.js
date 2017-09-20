@@ -15,10 +15,10 @@ var MovieSchema = new Schema({ //定义数据库模式
 		type: Number,
 		default: 0
 	},
-	/*category: {
+	categories: [{
 		type: ObjectId,
 		ref: 'Category'
-	},*/
+	}],
 	meta:{
 		createAt:{
 			type:Date,

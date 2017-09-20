@@ -2,6 +2,7 @@ var Movie=require('../app/controllers/movie')
 var Index=require('../app/controllers/index')
 var User=require('../app/controllers/user')
 var Comment=require('../app/controllers/comment')
+var Category=require('../app/controllers/category')
 module.exports=function(app){
 
 	app.use(function(req,res,next){
@@ -13,6 +14,7 @@ module.exports=function(app){
 	
 	//index page
 	app.get('/',Index.index)
+	app.get('/result',Index.search)
 	//user
 	app.post('/user/signup',User.signup)
 	app.post('/user/signin',User.signin)
@@ -23,18 +25,21 @@ module.exports=function(app){
 	
 	//movie  
 	//admin page
-	app.get('/admin/movie',Movie.new)
+	app.get('/admin/movie',User.signinRequired,User.adminRequired,Movie.new)
 	//admin update 
-	app.get('/admin/update/:id',Movie.update)
+	app.get('/admin/update/:id',User.signinRequired,User.adminRequired,Movie.update)
 	//admin post movie 
-	app.post('/admin/movie/new',Movie.save)
+	app.post('/admin/movie/new',User.signinRequired,User.adminRequired,Movie.save)
 	//list page
-	app.get('/admin/movie/list',Movie.list)
+	app.get('/admin/movie/list',User.signinRequired,User.adminRequired,Movie.list)
 	//detail page
 	app.get('/movie/:id',Movie.detail)
 	//list delete page
-	app.delete('/admin/list',Movie.delete)
+	app.delete('/admin/list',User.signinRequired,User.adminRequired,Movie.delete)
 
 	//comment
-	app.post('/user/comment',Comment.save)
+	app.post('/user/comment',User.signinRequired,User.adminRequired,Comment.save)
+	app.get('/admin/category/new',User.signinRequired,User.adminRequired,Category.save)
+	app.get('/admin/category/list',User.signinRequired,User.adminRequired,Category.list)
+	app.delete('/admin/category/list',User.signinRequired,User.adminRequired,Category.del)
 }

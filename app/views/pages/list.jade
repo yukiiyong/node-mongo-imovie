@@ -19,10 +19,9 @@ block content
 				tbody
 					each item in movies
 						tr(class="item-id-#{item._id}")
-						if item.categary
-								td #{item.category.name || 'a'}
-						else
-								td 
+							td 
+								each cat in item.categories
+									span #{cat.name}
 							td #{item.title}
 							td #{item.doctor}
 							td #{item.country}

@@ -11,7 +11,7 @@ exports.showSignin = function(req,res){
 		title:'登录页面'
 	})
 }
- 
+
 exports.signup= function(req,res){ 
 	var _user=req.body.user
 
@@ -97,8 +97,11 @@ exports.signinRequired=function(req,res,next){
 exports.adminRequired =function(req,res,next){
 	var user=req.session.user
 
+
 	if(user.role<= 10){
 		res.redirect('/signin')
 	}
 	next()
 }
+
+

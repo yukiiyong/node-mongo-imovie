@@ -5,7 +5,7 @@ exports.save=function(req,res){
 	var movieId=_comment.movie //movie以ObjectId 的形式存放
 
 	if(_comment.cid){//回复 cid为已经评论的_id tid为上一评论人
-		Comment.findById({_id:_comment.cid},function(err,comment){
+		Comment.findById(_comment.cid,function(err,comment){
 			var reply={
 				from:_comment.from,
 				to:_comment.tid,
